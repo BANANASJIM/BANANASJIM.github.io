@@ -1,0 +1,85 @@
+---
+layout: cv
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>{{ page.title }}</h1>
+      <p>{{ site.description }}</p>
+    </div>
+  </header>
+
+  <main class="cv-container">
+    <div class="container">
+      <section class="personal-info">
+        <h2>Personal Information</h2>
+        <ul>
+          <li><strong>Name:</strong> {{ site.author }}</li>
+          <li><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><strong>Location:</strong> {{ site.location }}</li>
+          <li><strong>GitHub:</strong> <a href="{{ site.github_url }}" target="_blank">GitHub</a></li>
+          <li><strong>LinkedIn:</strong> <a href="{{ site.linkedin_url }}" target="_blank">LinkedIn</a></li>
+        </ul>
+      </section>
+
+      <section class="education">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>{{ site.education.degree }}</strong> | {{ site.education.university }} | {{ site.education.year }}</li>
+        </ul>
+      </section>
+
+      <section class="work-experience">
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            <strong>{{ site.work_experience.position }}</strong> | {{ site.work_experience.company }} | {{ site.work_experience.dates }}
+            <p>{{ site.work_experience.description }}</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in site.skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="projects">
+        <h2>Projects</h2>
+        <ul>
+          {% for project in site.projects %}
+            <li>
+              <strong>{{ project.title }}</strong>
+              <p>{{ project.description }}</p>
+              <a href="{{ project.url }}" target="_blank">View Project</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}</p>
+    </div>
+  </footer>
+
+</body>
+</html>
