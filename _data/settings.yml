@@ -11,6 +11,9 @@ menu:
 # Projects Section
 
 projects:
+- {name: 'Violet Engine',   url: 'proj-6'}
+- {name: 'gamepaper',   url: 'proj-7'}
+- {name: 'Scrap Frontier',   url: 'proj-8'}
 - {name: 'Unity MiniGame',   url: 'proj-1'}
 - {name: 'Physics-Based Animation',   url: 'proj-2'}
 - {name: 'Crowd Simulation on Niagara', url: 'proj-3'}

@@ -45,16 +45,23 @@ Self-motivated student with a focus on computer graphics, GPGPU programming, and
 
 # Education
 
- **Beijing Forestry University**  
-**Bachelor of Vehicle Engineering** | September 2019 - June 2023  
+ **Simon Fraser University**
+**Master of Science in Computing Science - Visual Computing** | September 2024 - May 2027 (Expected)
+
+ **Beijing Forestry University**
+**Bachelor of Vehicle Engineering** | September 2019 - June 2023
 
 ---
 
 # Skills
 
-- **Programming**: C++, C#, Python, HLSL, GLSL
-- **3D Software**: Houdini, Blender, Unreal Engine, Substance Designer, Unity
-- **Machine Learning**: PyTorch
+- **Programming**: C++, C#, Python, HLSL, GLSL, Slang, GDScript
+- **Graphics APIs & Engines**: Vulkan, OpenGL, Unreal Engine (Proficient), Unity, Godot
+- **Graphics Tools**: RenderDoc, Slang shader compiler
+- **Developer Tools**: Git, SVN, CMake, Docker
+- **Systems**: Linux (proficient), Unix tools
+- **3D Software**: Houdini, Blender, Substance Designer
+- **Machine Learning**: PyTorch, OpenCV
 
 ---
 # Languages
