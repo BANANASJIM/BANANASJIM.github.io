@@ -12,6 +12,7 @@ menu:
 
 projects:
 - {name: 'Violet Engine',   url: 'proj-6'}
+- {name: 'flydigi-vader5',   url: 'proj-9'}
 - {name: 'gamepaper',   url: 'proj-7'}
 - {name: 'Scrap Frontier',   url: 'proj-8'}
 - {name: 'Unity MiniGame',   url: 'proj-1'}
