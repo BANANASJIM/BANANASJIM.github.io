@@ -13,7 +13,7 @@ layout: default
     <div class="hero-links">
       <a href="https://github.com/BANANASJIM" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/bananasjim/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="{{ site.github.url }}/cv"><i class="fa-solid fa-terminal"></i> CV</a>
+      <a href="{{ site.github.url }}/cv"><i class="fa-solid fa-file-code"></i> CV</a>
     </div>
   </div>
 </section>
@@ -24,39 +24,61 @@ layout: default
 </section>
 
 <script>
-// Matrix rain
+// Matrix rain — optimized
 const canvas = document.getElementById('matrix-canvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  let w, h, columns, drops;
 
-  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\';
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    const fontSize = 14;
+    columns = Math.floor(w / fontSize);
+    drops = Array(columns).fill(0).map(() => Math.random() * h / fontSize | 0);
+  }
+  resize();
+
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]';
   const fontSize = 14;
-  const columns = Math.floor(canvas.width / fontSize);
-  const drops = Array(columns).fill(1);
 
   function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+    ctx.fillRect(0, 0, w, h);
     ctx.fillStyle = '#00ff41';
     ctx.font = fontSize + 'px monospace';
 
     for (let i = 0; i < drops.length; i++) {
-      const text = chars[Math.floor(Math.random() * chars.length)];
+      const text = chars[Math.random() * chars.length | 0];
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      if (drops[i] * fontSize > h && Math.random() > 0.975) {
         drops[i] = 0;
       }
       drops[i]++;
     }
   }
 
-  setInterval(draw, 50);
-
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
+  setInterval(draw, 55);
+  window.addEventListener('resize', resize);
 }
+
+// Staggered fade-in for project cards
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.project-unit');
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const idx = Array.from(cards).indexOf(el);
+        el.style.animation = 'fadeInUp 0.5s ease-out ' + (idx * 0.08) + 's both';
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(function(card) {
+    card.style.opacity = '0';
+    observer.observe(card);
+  });
+});
 </script>
