@@ -200,7 +200,7 @@ header nav a:hover::after {
 
 /* ========== HAMBURGER MENU ========== */
 .nav-toggle {
-  display: none;
+  display: none !important;
   background: none;
   border: none;
   cursor: pointer;
@@ -239,7 +239,7 @@ header nav a:hover::after {
   }
 
   .nav-toggle {
-    display: block;
+    display: block !important;
   }
 
   header nav {
