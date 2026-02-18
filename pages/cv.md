@@ -12,6 +12,10 @@ permalink: /cv
 
 ---
 
+Currently focused on **AI, GPU computing, CUDA optimization, and real-time graphics**.
+
+---
+
 # Education
 
 **Simon Fraser University** — MSc Computing Science (Visual Computing)
