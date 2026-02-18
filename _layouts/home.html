@@ -2,15 +2,18 @@
 layout: default
 ---
 
+<canvas id="matrix-canvas"></canvas>
+
 <section class="hero">
   <div class="hero-content">
+    <p class="hero-prefix">&gt; whoami</p>
     <h1 class="hero-title">Jim Zheng</h1>
     <p class="hero-subtitle">GPU / Graphics Engineer</p>
-    <p class="hero-desc">Building high-performance CUDA engines, Vulkan renderers, and neural rendering systems.<br>MSc Visual Computing @ Simon Fraser University.</p>
+    <p class="hero-desc">Building high-performance CUDA engines, Vulkan renderers,<br>and neural rendering systems.<br>MSc Visual Computing @ Simon Fraser University.</p>
     <div class="hero-links">
       <a href="https://github.com/BANANASJIM" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
       <a href="https://www.linkedin.com/in/bananasjim/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-      <a href="{{ site.github.url }}/cv"><i class="fa-solid fa-file-lines"></i> CV</a>
+      <a href="{{ site.github.url }}/cv"><i class="fa-solid fa-terminal"></i> CV</a>
     </div>
   </div>
 </section>
@@ -19,3 +22,41 @@ layout: default
   <h2 class="section-title">Projects</h2>
   {% include projects.html %}
 </section>
+
+<script>
+// Matrix rain
+const canvas = document.getElementById('matrix-canvas');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>{}[]=/\\';
+  const fontSize = 14;
+  const columns = Math.floor(canvas.width / fontSize);
+  const drops = Array(columns).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#00ff41';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 50);
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
+</script>
