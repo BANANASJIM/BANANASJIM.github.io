@@ -11,18 +11,18 @@ menu:
 # Projects Section
 
 projects:
-- {name: 'RenderFormer CUDA Engine',  url: 'proj-10'}
-- {name: 'TinyLama',   url: 'proj-11'}
-- {name: 'Violet Engine',   url: 'proj-6'}
-- {name: 'Goggles',   url: 'proj-12'}
-- {name: 'flydigi-vader5',   url: 'proj-9'}
-- {name: 'gamepaper',   url: 'proj-7'}
-- {name: 'Scrap Frontier',   url: 'proj-8'}
-- {name: 'Crowd Simulation on Niagara', url: 'proj-3'}
-- {name: 'Physics-Based Animation',   url: 'proj-2'}
-- {name: 'Character Animation',  url: 'proj-4'}
-- {name: 'PCG',  url: 'proj-5'}
-- {name: 'Unity MiniGame',   url: 'proj-1'}
+- {name: 'RenderFormer CUDA Engine',  url: 'proj-10', tags: 'CUDA · C++20 · SIGGRAPH 2025'}
+- {name: 'TinyLama',   url: 'proj-11', tags: 'CUDA · Vulkan · LLM Inference'}
+- {name: 'Violet Engine',   url: 'proj-6', tags: 'Vulkan · C++20 · RenderGraph'}
+- {name: 'Goggles',   url: 'proj-12', tags: 'Vulkan · DMA-BUF · Shader Pipeline'}
+- {name: 'flydigi-vader5',   url: 'proj-9', tags: 'C++20 · Linux · Userspace Driver'}
+- {name: 'gamepaper',   url: 'proj-7', tags: 'Vulkan · Wayland · Live Wallpaper'}
+- {name: 'Scrap Frontier',   url: 'proj-8', tags: 'Godot · Game Jam · Physics'}
+- {name: 'Crowd Simulation on Niagara', url: 'proj-3', tags: 'UE5 · Niagara · VAT'}
+- {name: 'Physics-Based Animation',   url: 'proj-2', tags: 'C++ · Simulation'}
+- {name: 'Character Animation',  url: 'proj-4', tags: 'UE5 · Animation'}
+- {name: 'PCG',  url: 'proj-5', tags: 'UE5 · Procedural Generation'}
+- {name: 'Unity MiniGame',   url: 'proj-1', tags: 'Unity · C#'}
 
 #-------------------------------
 # Contact Section

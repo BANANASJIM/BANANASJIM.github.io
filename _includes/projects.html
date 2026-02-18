@@ -4,7 +4,10 @@
       <a href="{{ site.github.url }}/projects/{{ project.url }}">
         <div class="project-unit" style="background-image: url({{ site.github.url }}/assets/img/projects/{{ project.url }}/thumbnail.png)">
           <div class="project-overlay">
-            <strong>{{ project.name }}</strong>
+            <div class="project-info">
+              <strong>{{ project.name }}</strong>
+              {% if project.tags %}<span class="project-tags">{{ project.tags }}</span>{% endif %}
+            </div>
           </div>
         </div>
       </a>

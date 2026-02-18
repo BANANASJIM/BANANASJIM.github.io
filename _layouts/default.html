@@ -36,5 +36,17 @@
       {% include footer.html %}
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var nav = document.querySelector('header nav');
+        if (toggle && nav) {
+          toggle.addEventListener('click', function() {
+            toggle.classList.toggle('active');
+            nav.classList.toggle('open');
+          });
+        }
+      });
+    </script>
   </body>
 </html>
