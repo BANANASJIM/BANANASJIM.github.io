@@ -2,4 +2,20 @@
 layout: default
 ---
 
-{% include projects.html %}
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Jim Zheng</h1>
+    <p class="hero-subtitle">GPU / Graphics Engineer</p>
+    <p class="hero-desc">Building high-performance CUDA engines, Vulkan renderers, and neural rendering systems.<br>MSc Visual Computing @ Simon Fraser University.</p>
+    <div class="hero-links">
+      <a href="https://github.com/BANANASJIM" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/bananasjim/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="{{ site.github.url }}/cv"><i class="fa-solid fa-file-lines"></i> CV</a>
+    </div>
+  </div>
+</section>
+
+<section class="projects-section">
+  <h2 class="section-title">Projects</h2>
+  {% include projects.html %}
+</section>
