@@ -7,6 +7,6 @@ plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 
-title:		   "Portfolio"
-description: "Welcome to my portfolio! Here you can find my projects and work."
-author:      "bananasjim"
+title:		   "Jim Zheng"
+description: "Graphics programmer & GPU engineer. CUDA, Vulkan, neural rendering, LLM inference."
+author:      "Jim Zheng"

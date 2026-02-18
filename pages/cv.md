@@ -16,14 +16,15 @@ permalink: /cv
 
 # Research Interests
 
-- **Computer Graphics**: Neural Rendering, Character Animation, VR/AR Interaction, Game Development
-- **Parallel Computing**: High-performance GPU programming, and parallel processing for graphics and AI workloads.
+- **Computer Graphics**: Neural Rendering, Real-time Rendering, Character Animation, Game Development
+- **GPU Systems**: High-performance CUDA/Vulkan programming, LLM inference optimization, kernel development
+- **Parallel Computing**: GPU acceleration for graphics and AI workloads
 
 ---
 
 # Profile
 
-Self-motivated student with a focus on computer graphics, GPGPU programming, and AI. Passionate about advancing research in GPU acceleration and AI-driven graphics applications.
+Graphics programmer and GPU engineer with hands-on experience in CUDA kernel optimization, Vulkan rendering, and neural rendering systems. Built a standalone CUDA inference engine for RenderFormer (SIGGRAPH 2025) achieving 8.3× speedup over PyTorch, and a from-scratch LLM inference engine with Vulkan/CUDA dual backends. Previously shipped GPU-accelerated crowd simulation and procedural content tools in production game titles at Camel Games and Perfect World.
 
 ---
 
@@ -55,13 +56,13 @@ Self-motivated student with a focus on computer graphics, GPGPU programming, and
 
 # Skills
 
-- **Programming**: C++, C#, Python, HLSL, GLSL, Slang, GDScript
+- **Programming**: C++20, C, CUDA, Python, HLSL, GLSL, Slang, C#
+- **GPU Programming**: CUDA (cuBLAS, cuDNN, WMMA/Tensor Cores, CUDA Graphs), Vulkan Compute, PTX
 - **Graphics APIs & Engines**: Vulkan, OpenGL, Unreal Engine (Proficient), Unity, Godot
-- **Graphics Tools**: RenderDoc, Slang shader compiler
-- **Developer Tools**: Git, SVN, CMake, Docker
-- **Systems**: Linux (proficient), Unix tools
+- **Graphics Tools**: RenderDoc, Nsight Compute, Slang shader compiler
+- **Developer Tools**: Git, CMake, Docker, Linux (proficient)
 - **3D Software**: Houdini, Blender, Substance Designer
-- **Machine Learning**: PyTorch, OpenCV
+- **Machine Learning**: PyTorch, OpenCV, GGUF/safetensors model formats
 
 ---
 # Languages

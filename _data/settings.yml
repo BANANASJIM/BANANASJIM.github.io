@@ -11,15 +11,18 @@ menu:
 # Projects Section
 
 projects:
+- {name: 'RenderFormer CUDA Engine',  url: 'proj-10'}
+- {name: 'TinyLama',   url: 'proj-11'}
 - {name: 'Violet Engine',   url: 'proj-6'}
+- {name: 'Goggles',   url: 'proj-12'}
 - {name: 'flydigi-vader5',   url: 'proj-9'}
 - {name: 'gamepaper',   url: 'proj-7'}
 - {name: 'Scrap Frontier',   url: 'proj-8'}
-- {name: 'Unity MiniGame',   url: 'proj-1'}
-- {name: 'Physics-Based Animation',   url: 'proj-2'}
 - {name: 'Crowd Simulation on Niagara', url: 'proj-3'}
+- {name: 'Physics-Based Animation',   url: 'proj-2'}
 - {name: 'Character Animation',  url: 'proj-4'}
 - {name: 'PCG',  url: 'proj-5'}
+- {name: 'Unity MiniGame',   url: 'proj-1'}
 
 #-------------------------------
 # Contact Section
@@ -37,9 +40,9 @@ social:
 # NOTE: Providing SEO information will make this website more searchable on the internet.
 
 seo:
-  description: 'Personal portfolio powered by Jekyll and GitHub Pages '
-  rel-author: 'https://plus.google.com/u/0/#'
-  rel-publisher: 'https://plus.google.com/u/0/#'
+  description: 'Jim Zheng — Graphics programmer & GPU engineer specializing in CUDA, Vulkan, neural rendering, and LLM inference optimization.'
+  rel-author: 'https://github.com/BANANASJIM'
+  rel-publisher: 'https://github.com/BANANASJIM'
 
 #-------------------------------
 # Google Analytics Section
