@@ -331,6 +331,165 @@ section:nth-child(odd) {
   color: var(--accent) !important;
 }
 
+/* CV Page */
+.cv-header {
+  text-align: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+
+.cv-header h1 {
+  font-size: 42px !important;
+  letter-spacing: -1.5px;
+  margin-bottom: 8px !important;
+}
+
+.cv-tagline {
+  font-size: 18px !important;
+  color: var(--accent) !important;
+  font-weight: 500;
+  margin-bottom: 16px !important;
+}
+
+.cv-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cv-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  transition: all 0.2s ease;
+  background: var(--bg-secondary);
+}
+
+.cv-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+.cv-focus {
+  font-size: 15px;
+  color: var(--text-muted) !important;
+  margin: 0 !important;
+}
+
+.cv-focus strong {
+  color: var(--text-secondary) !important;
+}
+
+.cv-section {
+  margin-bottom: 36px;
+}
+
+.cv-section h2 {
+  font-size: 11px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  color: var(--text-muted) !important;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 20px !important;
+}
+
+.cv-item {
+  margin-bottom: 20px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.cv-item:hover {
+  border-left-color: var(--accent);
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.cv-item-header strong {
+  color: var(--text-primary) !important;
+  font-size: 15px;
+}
+
+.cv-date {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-family: 'JetBrains Mono', monospace;
+  white-space: nowrap;
+}
+
+.cv-detail {
+  font-size: 14px;
+  color: var(--text-secondary) !important;
+  margin: 0 !important;
+  line-height: 1.6;
+}
+
+/* Skill Tags */
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cv-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.cv-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag-lang {
+  border-color: rgba(129, 140, 248, 0.3);
+  color: var(--accent);
+  background: rgba(129, 140, 248, 0.08);
+}
+
+.tag-gpu {
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.tag-tool {
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+
+.cv-lang-level {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
 /* Footer */
 footer {
   background: var(--bg-primary) !important;
