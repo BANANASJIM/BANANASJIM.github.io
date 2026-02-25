@@ -11,6 +11,7 @@ menu:
 # Projects Section
 
 projects:
+- {name: 'rdc-cli', url: 'proj-13', tags: 'Python · RenderDoc · CLI'}
 - {name: 'RenderFormer CUDA Engine',  url: 'proj-10', tags: 'CUDA · C++20 · SIGGRAPH 2025'}
 - {name: 'TinyLama',   url: 'proj-11', tags: 'CUDA · Vulkan · LLM Inference'}
 - {name: 'Violet Engine',   url: 'proj-6', tags: 'Vulkan · C++20 · RenderGraph'}
