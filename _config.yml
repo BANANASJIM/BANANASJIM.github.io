@@ -8,5 +8,5 @@ plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 
 title:		   "Jim Zheng"
-description: "Graphics programmer & GPU engineer. CUDA, Vulkan, neural rendering, LLM inference."
+description: "Graphics programmer & GPU engineer. CUDA, Vulkan, neural rendering, LLM inference, ML, AI agents."
 author:      "Jim Zheng"
