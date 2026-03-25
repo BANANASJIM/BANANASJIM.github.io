@@ -10,3 +10,9 @@ plugins:   [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 title:		   "Jim Zheng"
 description: "Graphics programmer & GPU engineer. CUDA, Vulkan, neural rendering, LLM inference, ML, AI agents."
 author:      "Jim Zheng"
+
+# Collections
+collections:
+  ai_harness_series:
+    output: true
+    permalink: /series/ai-harness/:title
