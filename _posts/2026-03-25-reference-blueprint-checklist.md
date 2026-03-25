@@ -56,4 +56,19 @@ If you design for intent preservation, model improvements become multiplicative.
 
 ## References
 
-- Anthropic, LangChain, Chroma, Letta, Spotify Engineering, JetBrains Research, AWS Prescriptive Guidance (links in earlier parts of this series)
+- Anthropic, *Effective Context Engineering for AI Agents*  
+  https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+- LangChain, *Context Engineering for Agents*  
+  https://blog.langchain.com/context-engineering-for-agents/
+- Chroma Research, *Context Rot*  
+  https://research.trychroma.com/context-rot
+- arXiv, *How Many Instructions Can LLMs Follow?*  
+  https://arxiv.org/html/2507.11538v1
+- Letta, *Context Repositories*  
+  https://www.letta.com/blog/context-repositories
+- JetBrains Research, *Efficient Context Management for Coding Agents*  
+  https://blog.jetbrains.com/research/2025/12/efficient-context-management/
+- Spotify Engineering, *Context Engineering for Background Coding Agents*  
+  https://engineering.atspotify.com/2025/11/context-engineering-background-coding-agents-part-2
+- AWS Prescriptive Guidance, *Prompt, agent, and model lifecycle management*  
+  https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-serverless/prompt-agent-and-model.html

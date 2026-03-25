@@ -52,7 +52,7 @@ Use intent-gated retrieval:
 
 - `core-policy.md` (hot)
 - `roles/*.md` (warm/on-demand)
-- `design/`, `research/`, `archive/` (cold)
+- `docs/`, `research-notes/`, `decisions/` (cold)
 - retrieval index over cold store
 
 ## References
