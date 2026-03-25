@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<section>
+  <article class="article-container">
+    <header class="article-head">
+      <a href="{{ site.github.url }}/blog" class="back-link">Blog</a>
+      <div class="article-meta-row">
+        <span class="article-path">{{ page.url }}</span>
+        <span class="article-meta-dot"></span>
+        <span class="article-date">{{ page.date | date: "%B %-d, %Y" }}</span>
+      </div>
+      <h1 class="article-title">{{ page.title }}</h1>
+      {% if page.description %}
+        <p class="article-deck">{{ page.description }}</p>
+      {% endif %}
+    </header>
+    <div class="article-content">{{ content }}</div>
+  </article>
+</section>

@@ -4,20 +4,49 @@ layout: default
 
 <section>
   <div class="blog-container">
-    {% for post in site.posts %}
-      <div class="blog-unit">
-        <h1><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h1>
-        <span class="blog-date">
-          {% assign d = post.date | date: "%-d"  %}
-          {{ post.date | date: "%B" }}
-          {% case d %}
-            {% when '1' or '21' or '31' %}{{ d }}st
-            {% when '2' or '22' %}{{ d }}nd
-            {% when '3' or '23' %}{{ d }}rd
-            {% else %}{{ d }}th{% endcase %},
-          {{ post.date | date: "%Y" }}
-        </span>
+    <div class="blog-hero">
+      <div class="blog-terminal">
+        <span class="blog-terminal-prompt">$</span>
+        <span>open notes/blog.log --mode archive</span>
       </div>
-    {% endfor %}
+      <p class="blog-kicker">Writing</p>
+      <h1>{{ page.title }}</h1>
+      <p class="blog-intro">A technical notebook for articles, field notes, and ideas on graphics, GPU systems, and whatever I learn while building.</p>
+      <div class="blog-meta-row">
+        <span>/blog</span>
+        <span>{{ site.posts.size }} {% if site.posts.size == 1 %}entry{% else %}entries{% endif %}</span>
+        <span>graphics + systems + experiments</span>
+      </div>
+    </div>
+
+    {% if site.posts.size > 0 %}
+      <div class="blog-list">
+        {% for post in site.posts %}
+          <article class="blog-unit" style="--entry-index: {{ forloop.index0 }};">
+            <div class="blog-unit-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+            <div class="blog-unit-body">
+              <div class="blog-unit-meta">
+                <span class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+                <span class="blog-meta-dot"></span>
+                <span class="blog-label">entry {{ forloop.index }}</span>
+              </div>
+              <h2><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h2>
+              {% assign excerpt = post.excerpt | strip_html | strip_newlines | strip | truncate: 180 %}
+              {% if excerpt != '' %}
+                <p class="blog-excerpt">{{ excerpt }}</p>
+              {% endif %}
+              <a href="{{ site.github.url }}{{ post.url }}" class="blog-read">Read note</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="blog-empty">
+        <p class="blog-empty-command">$ ls _posts</p>
+        <h2>First post coming soon.</h2>
+        <p>This section is ready. New articles will show up here as they are published.</p>
+        <p class="blog-empty-hint">Create <code>_posts/YYYY-MM-DD-title.md</code> with <code>layout: article</code> to publish the first note.</p>
+      </div>
+    {% endif %}
   </div>
 </section>
