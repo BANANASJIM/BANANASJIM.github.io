@@ -71,3 +71,15 @@ In the world of AI, the old adage "trust, but verify" takes on a new meaning. We
 Stop asking your agents to perform tasks that require deterministic proof. Let the compiler be the compiler. Let the test runner be the test runner. Let your linter be your linter.
 
 Reserve your powerful language models for the tasks that only they can do: understanding intent, providing architectural guidance, and judging the subjective elegance of a solution. By separating the provable from the plausible, we can build multi-agent systems that are not only fast and innovative but also robust, reliable, and worthy of our trust.
+
+---
+
+## A Note on Architecture
+
+When building systems where AI agents review work, the goal isn't to create a single, all-knowing AI judge. It's to build a reliable assembly line with specialized quality-control stations.
+
+1.  **Use a Robot for Measurements, and an Artist for Aesthetics.** An LLM is like a brilliant art critic. It excels at judging style, composition, and whether a piece aligns with the creative vision. A deterministic tool, like a linter or a test suite, is like a laser-guided robot with a ruler. It is ruthlessly precise and perfect for checking measurements and specifications. You wouldn't ask the art critic to verify the frame's dimensions, and you wouldn't ask the robot for its opinion on the painting. Each tool must be used for what it does best.
+
+2.  **Quality Control is a Gauntlet, Not a Single Judge.** Before a piece of work earns the attention of the thoughtful (and expensive) art critic, it must first survive a gauntlet of automated, un-feeling checks. Does it meet the basic specifications? Is it structurally sound? If the work fails these simple, binary tests, it's sent back immediately. The critic's time is too valuable to be spent on work that is demonstrably flawed.
+
+3.  **Free the Critic to Do Its Real Job.** By letting automated gates handle the provable, objective checks, the AI reviewer is freed to focus on its true purpose: providing high-level, semantic feedback. Its job is not to find syntax errors or failing tests; it's to ask the bigger questions. "Does this solution align with the project's long-term vision?" "Is there a more elegant way to approach this problem?" This separation of duties is what makes the entire review process both efficient and reliable.

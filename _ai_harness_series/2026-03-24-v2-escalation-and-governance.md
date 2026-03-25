@@ -63,3 +63,15 @@ Here is a model for a tiered escalation system:
 Human governance is not an obstacle to be routed around; it's a critical component of a robust and trustworthy AI system. The goal is not to eliminate human oversight, but to make it as efficient and impactful as possible.
 
 By moving away from the simplistic, blocking "ask for permission" model and toward a sophisticated, tiered, and asynchronous escalation framework, we can have the best of both worlds. We get the speed and scalability of automation, guided by the wisdom and authority of human experts. We build systems that respect human attention, preserve human authority, and still allow our agents to get their work done.
+
+---
+
+## A Note on Architecture
+
+A well-designed automated system doesn’t just run on its own; it knows *how* and *when* to ask for help. This escalation strategy should be built into the system’s core, treating human attention as its most valuable and expensive resource.
+
+1.  **Not All Alerts Are Created Equal.** Imagine a factory floor. A minor cosmetic scuff might just get noted in a log for the end-of-shift report. A slightly misaligned part might flash a yellow light, giving a supervisor a few moments to hit the stop button if they see a problem. A critical safety sensor tripping should slam the emergency stop on the entire line and require a manager’s key to restart. An agent’s escalation process should be just as nuanced, with different tiers for “FYI,” “optional veto,” and “hard approval.”
+
+2.  **Design for Asynchronous Oversight.** The factory line doesn’t grind to a halt every time a supervisor needs to be notified of a minor issue. The notification is sent, and the line continues. Similarly, an agent should be able to send a request for human review and then move on to another task while it waits. Blocking the entire agent’s operation for a non-critical human checkpoint is a massive waste of automation’s primary benefit: speed.
+
+3.  **The ‘Red Phone’ for Irreversible Actions.** For the most critical decisions—actions that are expensive or impossible to undo—the system must have a ‘red phone.’ It must be architecturally required to stop, pick up the phone, and get a clear “go” or “no-go” from a human operator. This isn’t a sign of the system’s failure; it’s the hallmark of its success, proving that it understands the weight of its potential actions and respects the final authority of its human user.
