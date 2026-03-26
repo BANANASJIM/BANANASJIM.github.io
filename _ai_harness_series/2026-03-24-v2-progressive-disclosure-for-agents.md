@@ -84,3 +84,14 @@ In this model, the harness is a state machine. The completion of one phase trigg
 Progressive disclosure is about changing our mental model of agent interaction. We are not programming by dumping data into a context window. We are having a structured dialogue with the model, where each turn in the conversation is carefully staged to provide focus and clarity.
 
 By taking on the burden of context management, our agent harnesses can dramatically improve reliability. We stop asking the model to be a master of prioritization and instead empower it to be a master of execution for a series of well-defined, tightly-scoped tasks. This shift—from a single, monolithic god prompt to a dynamic, multi-phase conversation—is a fundamental step in the evolution from brittle toys to reliable, production-ready AI agents.
+
+---
+### Architectural Principles
+
+The principle of progressive disclosure is a core tenet of context engineering, ensuring that an agent receives the right information at the right time, and nothing more.
+
+1.  **Context is a Staged, Not Monolithic, Resource.** Information should not be treated as a single, front-loaded block. A well-designed harness delivers context in stages, aligning the information provided with the agent's current phase of work (e.g., planning vs. execution vs. review). This respects the model's limited instruction budget and prevents cognitive overload.
+
+2.  **Harness as a State Machine.** The agent harness should be architected as a formal state machine. Each state or phase of a workflow must correspond to a distinct prompt template and a curated set of tools, ensuring the agent is always operating within a purpose-built, minimal context for the task-at-hand.
+
+3.  **Artifact-Driven State Transitions.** The transitions between states should be driven by the creation of durable artifacts. The completion of a `plan.md` file by the "planning" phase is the explicit, auditable signal that triggers the transition to the "implementation" phase. This makes the workflow transparent, recoverable, and less dependent on ephemeral in-memory state.

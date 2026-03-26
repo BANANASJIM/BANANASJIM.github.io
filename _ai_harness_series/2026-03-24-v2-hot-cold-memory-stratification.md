@@ -71,3 +71,13 @@ The workflow looks like this:
 By stratifying memory, we move from the anti-pattern of a single, ever-growing scratchpad to a more robust and scalable memory architecture. The agent's context window (hot memory) stays small and focused on the immediate task, preventing context thrashing and instruction dilution. The harness, acting as a memory controller, ensures that relevant long-term knowledge from cold storage is available when needed.
 
 This is not just about building agents that can handle longer tasks. It's about building agents that can learn, adapt, and build upon their own past work. A flat memory system creates amnesiacs, doomed to repeat their mistakes. A stratified memory system is the first step toward creating agents with continuity, persistence, and a genuine capacity for complex, long-term reasoning.
+---
+### Architectural Principles
+
+A robustly stratified memory architecture is not an ad-hoc solution but the expression of a disciplined engineering philosophy. Three core principles underpin this pattern:
+
+1.  **Minimum Effective Context**. The primary objective is not to maximize the context an agent can access, but to minimize it to the essential information required for the current task. This prevents **instruction dilution** and reduces the cognitive load on the model, leading to more reliable outcomes.
+
+2.  **Stateless Execution with Externalized State**. Agent operations must be treated as stateless transformations. All durable state—including plans, intermediate results, and consolidated knowledge—must be externalized to an artifact-first repository (e.g., a version-controlled filesystem). This ensures full reproducibility, auditability, and resilience against system failure.
+
+3.  **System-Managed Context Retrieval**. The agent itself should not be responsible for searching and retrieving from its own long-term memory. This responsibility lies with the surrounding **harness**. The harness must act as a context provisioner, retrieving relevant knowledge from "cold" storage and injecting it into the "hot" context window on a just-in-time basis, guided by the agent's current task and role.

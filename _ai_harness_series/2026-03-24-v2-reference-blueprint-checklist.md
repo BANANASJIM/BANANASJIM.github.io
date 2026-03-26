@@ -98,3 +98,18 @@ Imagine an agent tasked with: "Monitor our user feedback channel and fix any rep
 The days of treating agent development as prompt-crafting alchemy are numbered. Building reliable agents is a software engineering discipline. It requires architecture, rigor, and a focus on building robust systems, not just clever prompts.
 
 This blueprint—based on stateless operations, stratified memory, staged context, separated control planes, and efficient human oversight—provides a path forward. It's a model that embraces the power of LLMs for reasoning while grounding them in the deterministic, auditable, and resilient world of classical software engineering. By adopting these principles, we can begin to build the next generation of AI agents: not just impressive demos, but trustworthy partners in our most critical automated tasks.
+
+---
+### Architectural Principles: A Unified View
+
+The patterns described in this series are not isolated tactics; they are facets of a single, coherent design philosophy for building reliable agentic systems.
+
+1.  **Stateless Agents on an Artifact-First Foundation.** The system's single source of truth must be a durable, externalized state, typically a version-controlled filesystem. Agents are treated as stateless functions that transform this repository of artifacts from one valid state to the next, ensuring resilience and auditability.
+
+2.  **A Stratified, System-Managed Memory.** Context is not monolithic. It must be stratified into **hot** (in-prompt, for immediate use) and **cold** (on-disk, for long-term knowledge) layers. The system harness, not the agent, is responsible for managing this stratification, retrieving and staging context on a just-in-time basis.
+
+3.  **Separation of Powers: Control vs. Data Planes.** The agent's reasoning and decision-making capabilities (**Control Plane**) must be architecturally separated from its ability to execute actions (**Data Plane**). The Control Plane proposes structured *Intents*; the Data Plane validates and executes them under a strict, codified policy.
+
+4.  **A Pipeline of Verification.** Quality and compliance are ensured through a multi-stage pipeline. Work must first pass through a gauntlet of **deterministic gates** (e.g., tests, linters) before being subjected to a more nuanced **semantic review** by an AI or human, who can focus on high-level concerns.
+
+5.  **Tiered, Asynchronous Human Governance.** Human oversight is a core feature, not a bug. The system must treat human attention as a scarce resource, implementing **tiered escalation pathways** (e.g., FYI, optional veto, hard approval) that are asynchronous by default to maximize automation throughput while preserving ultimate human authority.

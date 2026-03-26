@@ -7,7 +7,7 @@ categories: [ai, context-engineering]
 
 An AI agent is given the goal of "optimizing our cloud spend." It correctly identifies an unused, oversized database. It then formulates a plan: "1. Snapshot the database. 2. Create a new, smaller database. 3. Restore the snapshot. 4. Delete the old database." The agent proceeds to execute this plan. It successfully performs steps 1-3. Then, for step 4, it constructs the command `aws rds delete-db-instance --db-instance-identifier prod-database-main` and executes it. The production database is gone.
 
-The agent did exactly what it planned to do. The plan was logical. The execution was flawless. The failure was one of governance. The agent, a single, monolithic entity, possessed both the ability to *decide* to delete the database and the ability to *execute* that deletion. The decision-making logic and the execution capability were fused together.
+The agent did exactly what it planned to do. The plan was logical. The execution was flawless. The failure was one ofgovernance. The agent, a single, monolithic entity, possessed both the ability to *decide* to delete the database and the ability to *execute* that deletion. The decision-making logic and the execution capability were fused together.
 
 This fusion of decision and execution is a ticking time bomb in any powerful agent system. To build safe and reliable agents, we must architecturally separate the *control plane* (the layer that decides what to do) from the *data plane* (the layer that performs the action).
 
@@ -23,7 +23,7 @@ In this design, the model is the planner, the scheduler, and the trigger-man, al
 
 ### Anti-Pattern: The "Are You Sure?" Prompt
 
-A common but ineffective attempt to solve this is to add another layer of prompting. When the agent decides to perform a risky action, the harness catches it and asks the same model, "This seems dangerous. Are You sure you want to do this?"
+A common but ineffective attempt to solve this is to add another layer of prompting. When the agent decides to perform a risky action, the harness catches it and asks the same model, "This seems dangerous. Are you sure you want to do this?"
 
 This is a weak defense. It relies on the same semantic, non-deterministic process that made the initial decision. The model, having just justified its decision, is highly likely to double down. It will rationalize its choice and reply, "Yes, I am sure. According to my plan, this is the correct next step." We are asking the component that made the mistake to be its own safety inspector.
 
@@ -60,3 +60,14 @@ The control plane is our "decision service." It's creative, flexible, and powerf
 The data plane is our "execution service." It's simple, stupid, and deterministic, but fundamentally trusted. It holds the keys to the kingdom and operates under a strict, auditable set of rules.
 
 This separation allows us to harness the incredible planning and reasoning capabilities of modern LLMs without giving them the direct power to cause catastrophic failures. It moves our safety mechanisms out of the fuzzy, probabilistic world of natural language prompts and into the clear, deterministic world of code. By building systems with this architectural discipline, we can create agents that are not only powerful but also predictably safe.
+
+---
+### Architectural Principles
+
+The separation of powers is a foundational concept in governance, and it applies directly to the design of reliable agentic systems. Fusing decision-making with execution capability in a single entity creates unacceptable risk.
+
+1.  **Separate the Decision Plane from the Execution Plane.** A robust architecture must separate the "thinker" from the "doer." The **Control Plane** (the LLM) is responsible for reasoning and forming **Intents**, but it should not possess the credentials or direct ability to act on them. The **Execution Plane** (a deterministic set of tools) receives these intents, validates them against hard-coded policies, and only then performs the action. The LLM decides; the code executes.
+
+2.  **Least Privilege by Default.** The Control Plane agent should run in a sandboxed environment with the absolute minimum privilege required—ideally, read-only access plus the ability to *propose* an intent. The powerful credentials needed for execution should be held exclusively by the Execution Plane and scoped as narrowly as possible.
+
+3.  **Intents as a Formal API.** The communication between the Control Plane and the Execution Plane should not be an informal natural language command. It must be a formal, version-controlled **Intent Schema** (e.g., a JSON object). This schema is the API contract that ensures proposals are structured, validatable, and unambiguous.

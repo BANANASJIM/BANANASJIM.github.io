@@ -62,3 +62,14 @@ The agent harness's job becomes much simpler. It's not a Python interpreter or a
 By designing text-native tool surfaces, we are meeting the agents where they are. We are creating an environment that is natural to them, one that leverages their core strength: generating and understanding text. We stop forcing them to be mediocre Python programmers and instead empower them to be expert users of a powerful, composable toolset.
 
 This shift in interface design is a crucial step in building more reliable and resilient agents. It simplifies the agent harness, improves discoverability, enables powerful composition, and creates a seamless synergy between the agent and its human supervisors. Before you write another Python function for your agent to call, ask yourself: could this be a CLI instead? The answer will often lead you to a more robust and elegant system.
+
+---
+### Architectural Principles
+
+The interface between an agent and its tools is a critical control surface. Forcing an LLM, a native text processor, to conform to rigid programmatic APIs creates unnecessary friction and fragility.
+
+1.  **Text as the Universal Interface.** An agent's native language is text. Tools should, whenever possible, expose a **text-native interface** (e.g., a command-line interface) rather than a programmatic one (e.g., a Python function). This minimizes the "impedance mismatch" between the agent's text-based reasoning and the tool's structured input requirements.
+
+2.  **Embrace Composability.** Following the Unix philosophy, tools should be small, single-purpose, and designed to be composed. An agent that can pipe the text output of one tool to the text input of another can create complex workflows dynamically, without requiring a new, monolithic tool to be written for every unique task.
+
+3.  **Enable Introspection for Self-Correction.** A key advantage of text-native (specifically, CLI-style) tools is that they can be self-documenting. The agent can be taught to run `tool --help` to retrieve its own instructions, a powerful pattern for self-correction and adaptation that is impossible with opaque, black-box SDK functions.

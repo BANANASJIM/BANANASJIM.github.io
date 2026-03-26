@@ -60,7 +60,7 @@ In this model, we are using tools for what they are good at.
 ### Practical Guidance for Implementation
 
 1.  **Invest in Your CI:** The foundation of any reliable agentic software development process is a fast, comprehensive, and ruthlessly deterministic CI/CD pipeline. Your test suite, linter, and static analysis tools are your most important governance assets.
-2.  **Make CI Output the API:** The feedback loop for a failing build should be entirely automated. The agent that submitted the code should receive the raw output from the failing tool (e.g., the Jest test failure report or the ESLint error list). Its next task is simple and non-negotiable: "Fix the errors reported by the tool."
+2.  **Make CI Output the API:** The feedback loop for a failing build should be entirely automated. The agent that submitted the code should receive the raw output from the failing tool (e.g., the Jest test failure report or the ESLint error list).Its next task is simple and non-negotiable: "Fix the errors reported by the tool."
 3.  **Scope the Semantic Review:** Clearly define what you expect from the LLM reviewer in your prompt. Explicitly tell it what *not* to check for. "You do not need to check for style errors or failing tests; the automated pipeline has already verified this. Focus on the 'why' of the change, not the 'what'."
 4.  **Chain the Agents:** The process is a chain of responsibility. The CI system is the first agent in the chain. It's a simple, deterministic agent. The LLM reviewer is the second. A human might be the third, for final sign-off. Each agent has a specific, well-defined role.
 
@@ -73,13 +73,12 @@ Stop asking your agents to perform tasks that require deterministic proof. Let t
 Reserve your powerful language models for the tasks that only they can do: understanding intent, providing architectural guidance, and judging the subjective elegance of a solution. By separating the provable from the plausible, we can build multi-agent systems that are not only fast and innovative but also robust, reliable, and worthy of our trust.
 
 ---
+### Architectural Principles
 
-## A Note on Architecture
+A reliable review process is not monolithic; it is a pipeline that separates provable, objective verification from subjective, semantic assessment. This separation of concerns is a foundational principle for trustworthy automation.
 
-When building systems where AI agents review work, the goal isn't to create a single, all-knowing AI judge. It's to build a reliable assembly line with specialized quality-control stations.
+1.  **Separate Deterministic Gating from Semantic Review.** A system's first line of defense must be a series of **deterministic gates**—automated, binary checks like compilers, linters, and test suites. These tools answer objective questions of correctness. Only after work has passed through these gates should it be presented to a **semantic reviewer** (AI or human) for subjective assessment of clarity, maintainability, and strategic alignment.
 
-1.  **Use a Robot for Measurements, and an Artist for Aesthetics.** An LLM is like a brilliant art critic. It excels at judging style, composition, and whether a piece aligns with the creative vision. A deterministic tool, like a linter or a test suite, is like a laser-guided robot with a ruler. It is ruthlessly precise and perfect for checking measurements and specifications. You wouldn't ask the art critic to verify the frame's dimensions, and you wouldn't ask the robot for its opinion on the painting. Each tool must be used for what it does best.
+2.  **Codify Policy in Tooling.** Do not rely on an LLM's interpretation of a prompt to enforce quality standards. If a standard can be checked by a linter, it must be enforced by the linter. If a behavior can be verified by a test, it must be covered by a test. Governance is most effective when it is encoded into the structure of the execution environment, not suggested in a natural language request.
 
-2.  **Quality Control is a Gauntlet, Not a Single Judge.** Before a piece of work earns the attention of the thoughtful (and expensive) art critic, it must first survive a gauntlet of automated, un-feeling checks. Does it meet the basic specifications? Is it structurally sound? If the work fails these simple, binary tests, it's sent back immediately. The critic's time is too valuable to be spent on work that is demonstrably flawed.
-
-3.  **Free the Critic to Do Its Real Job.** By letting automated gates handle the provable, objective checks, the AI reviewer is freed to focus on its true purpose: providing high-level, semantic feedback. Its job is not to find syntax errors or failing tests; it's to ask the bigger questions. "Does this solution align with the project's long-term vision?" "Is there a more elegant way to approach this problem?" This separation of duties is what makes the entire review process both efficient and reliable.
+3.  **Define the Scope of Review.** The role of the semantic reviewer is not to re-do the work of the deterministic gates. Its purpose is to evaluate the aspects of the work that automated tools cannot, such as architectural elegance, alignment with long-term goals, or the exploration of alternative approaches. The prompt for a semantic review should explicitly state what has already been verified, freeing the LLM to focus on higher-level concerns.

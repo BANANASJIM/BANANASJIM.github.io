@@ -65,3 +65,14 @@ If the system crashes at any point, nothing is lost. The source of truth is the 
 The artifact-first model forces a shift in perspective. We stop thinking of agents as intelligent beings that have "state" and start thinking of them as powerful, non-deterministic functions in a larger, deterministic system. The agent's role is to transform one set of artifacts (the current state of the workspace) into the next set of artifacts.
 
 This approach yields systems that are dramatically more robust, reproducible, and debuggable. We trade the illusion of a magical, thinking agent for the reality of a reliable, auditable, and resilient workflow. By building our agentic systems on a foundation of solid, stateless artifacts, we can move from building fragile prototypes to engineering production-grade automation.
+
+---
+### Architectural Principles
+
+A resilient agent is a stateless agent. The reliability and reproducibility of a workflow are directly proportional to how rigorously state is externalized from the agent's ephemeral process.
+
+1.  **Externalized State as the Source of Truth.** The complete state of any task must reside in durable, external **artifacts** (e.g., files in a version-controlled workspace), not in the memory of a running process. This is the bedrock of a fault-tolerant system.
+
+2.  **Agents as Stateless Transformers.** An agent should be architected as a stateless function whose sole purpose is to transform one set of artifacts into the next. It reads the current state from disk, computes the next state, writes it back to disk, and can then exit completely. Its "memory" is the filesystem.
+
+3.  **Artifacts as Implicit Checkpoints.** In an artifact-first workflow, every successfully written file acts as a natural, durable checkpoint. This design makes long-running tasks inherently resilient, as the cost of a crash is limited to the single, in-progress step, not the accumulated work of the entire task.
