@@ -19,27 +19,57 @@ layout: default
       </div>
     </div>
 
-    {% if site.posts.size > 0 %}
-      <div class="blog-list">
-        {% for post in site.posts %}
-          <article class="blog-unit" style="--entry-index: {{ forloop.index0 }};">
-            <div class="blog-unit-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
-            <div class="blog-unit-body">
-              <div class="blog-unit-meta">
-                <span class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</span>
-                <span class="blog-meta-dot"></span>
-                <span class="blog-label">entry {{ forloop.index }}</span>
+    {% assign ai_series = site.ai_harness_series | sort: 'date' | reverse %}
+    {% if site.posts.size > 0 or ai_series.size > 0 %}
+      {% if site.posts.size > 0 %}
+        <div class="blog-list">
+          {% for post in site.posts %}
+            <article class="blog-unit" style="--entry-index: {{ forloop.index0 }};">
+              <div class="blog-unit-index">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+              <div class="blog-unit-body">
+                <div class="blog-unit-meta">
+                  <span class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+                  <span class="blog-meta-dot"></span>
+                  <span class="blog-label">entry {{ forloop.index }}</span>
+                </div>
+                <h2><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h2>
+                {% assign excerpt = post.excerpt | strip_html | strip_newlines | strip | truncate: 180 %}
+                {% if excerpt != '' %}
+                  <p class="blog-excerpt">{{ excerpt }}</p>
+                {% endif %}
+                <a href="{{ site.github.url }}{{ post.url }}" class="blog-read">Read note</a>
               </div>
-              <h2><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h2>
-              {% assign excerpt = post.excerpt | strip_html | strip_newlines | strip | truncate: 180 %}
-              {% if excerpt != '' %}
-                <p class="blog-excerpt">{{ excerpt }}</p>
-              {% endif %}
-              <a href="{{ site.github.url }}{{ post.url }}" class="blog-read">Read note</a>
-            </div>
-          </article>
-        {% endfor %}
-      </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if ai_series.size > 0 %}
+        <div class="blog-list" style="margin-top: 2rem;">
+          <div class="blog-unit-body" style="margin-bottom: 1rem;">
+            <h2>AI Harness and Context Engineering Series</h2>
+            <p class="blog-excerpt">A dedicated series on harness design, context engineering, and reliable agent workflows.</p>
+          </div>
+          {% for post in ai_series %}
+            <article class="blog-unit" style="--entry-index: {{ forloop.index0 }};">
+              <div class="blog-unit-index">S{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</div>
+              <div class="blog-unit-body">
+                <div class="blog-unit-meta">
+                  <span class="blog-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+                  <span class="blog-meta-dot"></span>
+                  <span class="blog-label">series {{ forloop.index }}</span>
+                </div>
+                <h2><a href="{{ site.github.url }}{{ post.url }}">{{ post.title }}</a></h2>
+                {% assign series_excerpt = post.excerpt | strip_html | strip_newlines | strip | truncate: 180 %}
+                {% if series_excerpt != '' %}
+                  <p class="blog-excerpt">{{ series_excerpt }}</p>
+                {% endif %}
+                <a href="{{ site.github.url }}{{ post.url }}" class="blog-read">Read note</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
     {% else %}
       <div class="blog-empty">
         <p class="blog-empty-command">$ ls _posts</p>
